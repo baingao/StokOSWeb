@@ -113,6 +113,10 @@ type
     dsqSuratJalanDtl: TDataSource;
     qSuratJalanMaster: TFDQuery;
     dsqSuratJalanMaster: TDataSource;
+    qSuratJalan: TFDQuery;
+    dsqSuratJalan: TDataSource;
+    FDQuery1: TFDQuery;
+    DataSource1: TDataSource;
     procedure IWUserSessionBaseCreate(Sender: TObject);
     procedure dsqPiutangDataChange(Sender: TObject; Field: TField);
     procedure dsqJualMasterDataChange(Sender: TObject; Field: TField);
@@ -142,11 +146,53 @@ type
 
     function GetSalesByAI(AI: Integer): Boolean;
     procedure CreateListSales(Nama: String; var ListSales: TStringList);
+
+    function CreateSuratJalanTemp: Boolean;
+    procedure CreateListGudang(var ListGudang: TStringList);
   end;
 
 implementation
 
 {$R *.dfm}
+
+function TIWUserSession.CreateSuratJalanTemp: Boolean;
+var
+  _q: TFDQuery;
+  _sql: String;
+begin
+  Result:=false;
+  try
+    _sql:='DROP TEMPORARY TABLE IF EXISTS `tempsuratjalan`';
+    _q:=TFDQuery.Create(Self);
+    _q.Connection:=DB;
+    _q.Close;
+    _q.SQL.Clear;
+    _q.SQL.Text:=_sql;
+    _q.ExecSQL;
+    _sql:='CREATE TEMPORARY TABLE IF NOT EXISTS `tempsuratjalan` ('+
+          ' `AI` INT(11) NOT NULL AUTO_INCREMENT,'+
+          ' `aisuratjalan` INT(11) NULL DEFAULT NULL,'+
+          ' `nota` VARCHAR(51) NULL DEFAULT NULL,'+
+          ' `tgl` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,'+
+          ' `kode` VARCHAR(51) NULL DEFAULT NULL,'+
+          ' `nama` VARCHAR(101) NULL DEFAULT NULL,'+
+          ' `jml` DECIMAL(5,2) NULL DEFAULT NULL,'+
+          ' `serial` VARCHAR(51) NULL DEFAULT NULL,'+
+          ' `gudang` VARCHAR(51) NULL DEFAULT NULL,'+
+          ' `tag` INT(11) NULL DEFAULT NULL,'+
+          ' PRIMARY KEY (`AI`)'+
+          ' )'+
+          ' COLLATE=''utf8_general_ci'''+
+          ' ENGINE=MyISAM';
+    _q.Close;
+    _q.SQL.Clear;
+    _q.SQL.Text:=_sql;
+    _q.ExecSQL;
+    Result:=true;
+  finally
+    _q.Free;
+  end;
+end;
 
 function TIWUserSession.LogStok(Jumlah: Double; Kode: string; Serial: string; Transaksi: string; User: string; Gudang: string; Kassa: string): Boolean;
 var
@@ -275,6 +321,34 @@ begin
     _q.SQL.Text:=_sql;
     _q.ExecSQL;
     Result:=true;
+  finally
+    _q.Free;
+  end;
+end;
+
+procedure TIWUserSession.CreateListGudang(var ListGudang: TStringList);
+var
+  _sql: String;
+  _q: TFDQuery;
+begin
+  try
+    ListGudang.Clear;
+    _q:=TFDQuery.Create(self);
+
+    _sql:='select * from gudang order by gudang';
+
+    _q.Connection:=DB;
+    _q.SQL.Text:=_sql;
+    _q.Open();
+    if not _q.IsEmpty then
+    begin
+      _q.First;
+      while not _q.Eof do
+      begin
+        ListGudang.Add(_q['gudang']);
+        _q.Next;
+      end;
+    end;
   finally
     _q.Free;
   end;

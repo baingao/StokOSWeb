@@ -60,9 +60,9 @@
     <Transaction>2014/06/19 15:14:07.000.437,=C:\Projects\StokOSWeb\Unit1.pas</Transaction>
     <Transaction>2014/06/19 15:22:19.000.047,C:\Projects\StokOSWeb\Unit1.dfm=C:\Projects\StokOSWeb\uTanggal.dfm</Transaction>
     <Transaction>2014/06/19 15:22:19.000.047,C:\Projects\StokOSWeb\Unit1.pas=C:\Projects\StokOSWeb\uTanggal.pas</Transaction>
-    <Transaction>2014/06/24 12:20:41.121,=C:\Projects\StokOSWeb\Unit1.pas</Transaction>
-    <Transaction>2014/06/24 13:00:41.496,C:\Projects\StokOSWeb\uSuratJalanNota.dfm=C:\Projects\StokOSWeb\Unit1.dfm</Transaction>
-    <Transaction>2014/06/24 13:00:41.496,C:\Projects\StokOSWeb\uSuratJalanNota.pas=C:\Projects\StokOSWeb\Unit1.pas</Transaction>
+    <Transaction>2014/06/24 12:20:41.000.121,=C:\Projects\StokOSWeb\Unit1.pas</Transaction>
+    <Transaction>2014/06/24 13:00:41.000.496,C:\Projects\StokOSWeb\uSuratJalanNota.dfm=C:\Projects\StokOSWeb\Unit1.dfm</Transaction>
+    <Transaction>2014/06/24 13:00:41.000.496,C:\Projects\StokOSWeb\uSuratJalanNota.pas=C:\Projects\StokOSWeb\Unit1.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="eapStrUtils.pas"/>
@@ -90,10 +90,10 @@
     <File Path="uStok.dfm"/>
     <File Path="uSupplier.pas"/>
     <File Path="uSupplier.dfm"/>
-    <File Path="uSuratJalan.pas"/>
-    <File Path="uSuratJalan.dfm"/>
     <File Path="uUser.pas"/>
     <File Path="uUser.dfm"/>
+    <File Path="uSuratJalan.pas"/>
+    <File Path="uSuratJalan.dfm"/>
     <File Path="uSalesCari.pas"/>
     <File Path="uSalesCari.dfm"/>
     <File Path="uJualMaster.pas"/>

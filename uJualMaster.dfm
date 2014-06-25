@@ -14,8 +14,8 @@ object JualMaster: TJualMaster
   LockOnSubmit = True
   ShowHint = True
   XPTheme = True
-  DesignLeft = -505
-  DesignTop = -139
+  DesignLeft = 8
+  DesignTop = 8
   object IWRegion2: TIWRegion
     Left = 39
     Top = 30
@@ -210,6 +210,8 @@ object JualMaster: TJualMaster
             BlobCharLimit = 0
             CompareHighlight = hcNone
             DataField = 'AI'
+            LinkField = 'AI'
+            OnClick = gJualMasterDtlColumns0Click
             Title.Alignment = taCenter
             Title.BGColor = clNone
             Title.DoSubmitValidation = True
@@ -497,7 +499,7 @@ object JualMaster: TJualMaster
         ExplicitWidth = 496
       end
       object IWDBGrid2: TIWDBGrid
-        Left = 10
+        Left = 14
         Top = 39
         Width = 1163
         Height = 214

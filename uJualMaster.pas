@@ -41,6 +41,8 @@ type
     procedure IWDBGrid2Columns0Click(ASender: TObject; const AValue: string);
     procedure cbFilterChange(Sender: TObject);
     procedure btSuratJalanClick(Sender: TObject);
+    procedure gJualMasterDtlColumns0Click(ASender: TObject;
+      const AValue: string);
   public
   end;
 
@@ -76,6 +78,13 @@ begin
     UserSession.qJualMaster.ParamByName('user').Value:='%';
   end;
   UserSession.qJualMaster.Open();
+end;
+
+procedure TJualMaster.gJualMasterDtlColumns0Click(ASender: TObject;
+  const AValue: string);
+begin
+  WebApplication.ShowMessage(AValue);
+  //UserSession.qJualMasterDtl.Locate('AI', StrToInt(AValue), []);
 end;
 
 procedure TJualMaster.IWAppFormCreate(Sender: TObject);
