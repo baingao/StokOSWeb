@@ -18,13 +18,9 @@ type
     Password: TIWLabel;
     ePassword: TIWEdit;
     IWRectangle1: TIWRectangle;
-    gJualMasterDtl: TIWDBGrid;
     procedure btLoginClick(Sender: TObject);
     procedure eNamaAsyncKeyPress(Sender: TObject; EventParams: TStringList);
     procedure ePasswordAsyncKeyPress(Sender: TObject; EventParams: TStringList);
-    procedure gJualMasterDtlColumns0Click(ASender: TObject;
-      const AValue: string);
-    procedure IWAppFormCreate(Sender: TObject);
   public
   end;
 
@@ -91,17 +87,6 @@ procedure TMain.ePasswordAsyncKeyPress(Sender: TObject;
   EventParams: TStringList);
 begin
   if (EventParams.Values['which']='13') then SetActiveControl(btlogin);
-end;
-
-procedure TMain.gJualMasterDtlColumns0Click(ASender: TObject;
-  const AValue: string);
-begin
-  WebApplication.ShowMessage(AValue);
-end;
-
-procedure TMain.IWAppFormCreate(Sender: TObject);
-begin
-  UserSession.FDQuery1.Open();
 end;
 
 initialization

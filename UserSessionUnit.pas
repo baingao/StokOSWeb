@@ -115,8 +115,8 @@ type
     dsqSuratJalanMaster: TDataSource;
     qSuratJalan: TFDQuery;
     dsqSuratJalan: TDataSource;
-    FDQuery1: TFDQuery;
-    DataSource1: TDataSource;
+    qSJ: TFDQuery;
+    dsqSJ: TDataSource;
     procedure IWUserSessionBaseCreate(Sender: TObject);
     procedure dsqPiutangDataChange(Sender: TObject; Field: TField);
     procedure dsqJualMasterDataChange(Sender: TObject; Field: TField);

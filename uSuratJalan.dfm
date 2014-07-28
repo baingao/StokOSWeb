@@ -15,7 +15,7 @@ object SuratJalan: TSuratJalan
   ShowHint = True
   XPTheme = True
   DesignLeft = 8
-  DesignTop = -290
+  DesignTop = 8
   object IWRegion2: TIWRegion
     Left = 39
     Top = 30
@@ -211,6 +211,7 @@ object SuratJalan: TSuratJalan
             BlobCharLimit = 0
             CompareHighlight = hcNone
             DataField = 'AI'
+            LinkField = 'AI'
             OnClick = IWDBGrid1Columns0Click
             Title.Alignment = taCenter
             Title.BGColor = clNone
@@ -404,7 +405,7 @@ object SuratJalan: TSuratJalan
             Title.Wrap = False
             Title.RawText = True
           end>
-        DataSource = IWUserSession.dsqJualMasterDtl
+        DataSource = IWUserSession.dsqSJ
         FooterRowCount = 0
         FriendlyName = 'IWDBGrid1'
         FromStart = True

@@ -124,6 +124,9 @@ begin
     UserSession.qSuratJalan.Close;
     UserSession.CreateSuratJalanTemp;
     UserSession.qSuratJalan.Open;
+    UserSession.qSJ.Close;
+    UserSession.qSJ.ParamByName('nota').Value:=UserSession.qJualMaster['AI'];
+    UserSession.qSJ.Open();
   finally
     _ListGudang.Free;
   end;
@@ -137,8 +140,9 @@ end;
 procedure TSuratJalan.IWDBGrid1Columns0Click(ASender: TObject;
   const AValue: string);
 begin
+  lbNamaToko.Caption:=AValue;
   WebApplication.ShowMessage(AValue);
-  UserSession.qJualMasterDtl.Locate('AI', StrToInt(AValue), []);
+  //UserSession.qJualMasterDtl.Locate('AI', StrToInt(AValue), []);
 end;
 
 function TSuratJalan.KirimBarang: Boolean;

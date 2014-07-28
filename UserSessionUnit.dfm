@@ -289,10 +289,17 @@ object IWUserSession: TIWUserSession
       'format(hjual,0) as displayhjual,'
       'format((jual.hjual*jual.jml),0) as displayhtotal'
       'from jual'
-      'where nota='#39'662'#39
+      'where nota=:nota'
       'order by jual.ai')
     Left = 269
     Top = 257
+    ParamData = <
+      item
+        Name = 'NOTA'
+        DataType = ftString
+        ParamType = ptInput
+        Value = Null
+      end>
   end
   object dsqJualMasterDtl: TDataSource
     DataSet = qJualMasterDtl
@@ -363,7 +370,7 @@ object IWUserSession: TIWUserSession
     Left = 519
     Top = 9
   end
-  object FDQuery1: TFDQuery
+  object qSJ: TFDQuery
     Connection = DB
     SQL.Strings = (
       'select jual.*,'
@@ -372,13 +379,18 @@ object IWUserSession: TIWUserSession
       'format(hjual,0) as displayhjual,'
       'format((jual.hjual*jual.jml),0) as displayhtotal'
       'from jual'
-      'where nota='#39'662'#39
+      'where nota=:nota'
       'order by jual.ai')
     Left = 560
     Top = 148
+    ParamData = <
+      item
+        Name = 'NOTA'
+        ParamType = ptInput
+      end>
   end
-  object DataSource1: TDataSource
-    DataSet = FDQuery1
+  object dsqSJ: TDataSource
+    DataSet = qSJ
     Left = 628
     Top = 156
   end
